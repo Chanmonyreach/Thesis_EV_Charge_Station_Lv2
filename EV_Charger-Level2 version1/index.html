@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Charger</title>
+    <link rel="icon" type="image/jpg" href="Image/LOGO_Head.jpg">
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+    <section id="banner">
+        <img src="Image/LOGO.png" class="LOGO" alt="Logo">
+        <div class="content">
+            <h1>Ironic EV Surge</h1>
+            <p>Welcome to Ironic EV Surge Charge Station's website.<br>Thank you for using our service!</p>
+            <div>
+                <a href="#" class="button" id="loginBtn">Login</a>
+            </div>
+        </div>
+        <div id="topnav">
+            <nav>
+                <ul>
+                    <li><a href="#" id="menuBtn"><i class="fas fa-bars" style="font-size: 1.75em;"></i></a></li>
+                </ul>
+            </nav>
+        </div> 
+        <div id="sidenav">
+            <nav>
+                <ul>
+                    <li><a href="Home.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="#" id="sidenavRegisterBtn"><i class="fas fa-user"></i>Register</a></li>
+                    <li><a href="#feature"><i class="fas fa-question-circle"></i>About</a></li>
+                </ul>                
+            </nav>
+        </div>  
+    </section>
+
+    <section id="feature">
+        <div class="title-text">
+            <p>Feature</p>
+            <h1>About Us</h1>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/">
+                    <i class="fab fa-facebook fa-2x" style="color:#3b5998;"></i>
+                </a>
+                <a href="https://www.instagram.com/">
+                    <i class="fab fa-instagram fa-2x" style="color:#E4405F;"></i>
+                </a>
+                <a href="https://t.me/">
+                    <i class="fab fa-telegram fa-2x" style="color:#0088cc;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Login Form -->
+<div class="form-containerLog" id="loginForm">
+    <form id="loginFormElement">
+        <h2 style="color: white; text-align: center;">Login</h2>
+        <div class="input-containerLog">
+            <label for="username"><i class="fas fa-user"></i></label>
+            <input type="text" id="username" name="username" required placeholder="Username">
+        </div>
+        <div class="input-containerLog">
+            <label for="password"><i class="fas fa-lock"></i></label>
+            <input type="password" id="password" name="password" required placeholder="Password">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <!-- <a href="#" class="button" id="google-login-btn"><img src="Image/Google_Logo.jpg" id="GoogleLOGO" alt="Logo"></a> -->
+</div>
+
+<!-- Signup Form -->
+<div class="form-containerReg" id="registerForm">
+    <form id="registerFormElement">
+        <h2 style="color: white; text-align: center;">Register</h2>
+        <div class="input-containerReg">
+            <label for="newUsername"><i class="fas fa-user"></i></label>
+            <input type="text" id="newUsername" name="newUsername" required placeholder="Username">
+            <span id="usernameAvailability"></span>
+        </div>
+        <div class="input-containerReg">
+            <label for="newPassword"><i class="fas fa-lock"></i></label>
+            <input type="password" id="newPassword" name="newPassword" required placeholder="Password">
+        </div>
+        <div class="input-containerReg">
+            <label for="email"><i class="fas fa-envelope"></i></label>
+            <input type="email" id="email" name="email" required placeholder="Email">
+        </div>
+        <button type="submit" id="registerForm_button">Register</button>
+    </form>
+</div>
+
+
+    <script src="index_script.js"></script>
+</body>
+</html>

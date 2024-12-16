@@ -1,0 +1,3024 @@
+@media screen and (min-width: 1025px) and (orientation: landscape) {
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        background: #222;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    #banner {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('Image/Background.jpg');
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+    }
+
+    .LOGO {
+        width: 12.5%;
+        height: auto;
+        position: relative;
+        /* margin-top: 1%; */
+        margin-left: -2%;
+    }
+
+    #topnav {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background: rgba(0, 150, 136, 0.7);
+        backdrop-filter: blur(5px);
+        /* Apply backdrop-filter for blur effect */
+        padding: 1px 50px;
+        /* Adjust padding as needed */
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    #topnav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        margin-right: 40px;
+        padding-top: 80px;
+    }
+
+    #topnav ul li {
+        margin-right: 20px;
+        /* Adjust spacing between menu items */
+    }
+
+    #topnav ul li:last-child {
+        margin-right: 0;
+        /* Remove margin from the last menu item */
+    }
+
+    #topnav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5em;
+        margin-left: 10px;
+        position: relative;
+        /* Add position relative to create a positioning context */
+    }
+
+    #topnav ul li i {
+        color: #fff;
+        font-size: 1.5em;
+    }
+
+
+    #topnav ul li a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        /* Adjust this value to change the distance from the letter */
+        left: 0;
+        width: 0;
+        /* Initially, the line is invisible */
+        height: 2px;
+        /* Height of the line */
+        background-color: #fff;
+        /* Color of the line */
+        transition: width 0.3s ease;
+        /* Transition effect for width change */
+    }
+
+    #topnav ul li a.active::after {
+        width: 100%;
+        /* Expand the width of the line for the active link */
+    }
+
+    #topnav ul li a.active {
+        color: #c7c7c7;
+        /* Change the color of the active link */
+    }
+
+    #topnav ul li a:hover::after {
+        width: 100%;
+        /* When hovering, expand the width of the line to cover the letter */
+    }
+
+    #bottomnav {
+        display: none;
+    }
+
+    body.translate-background {
+        transform: translateX(-250px);
+        transition: transform 0.5s ease;
+    }
+
+    .hide-account-icon {
+        display: none !important;
+    }
+
+    #accountBtnTopbar i {
+        text-decoration: none;
+        color: #fff;
+        font-size: 2em;
+        position: relative;
+        bottom: 40px;
+        /* Adjust this to position the element at the bottom */
+        right: -95%;
+        /* Align it horizontally with some padding from the right */
+
+    }
+
+    .content-wrapper {
+        position: relative;
+        width: 100%;
+        height: 90%;
+        overflow: hidden;
+    }
+
+    .content-section {
+        position: absolute;
+        /* Ensure sections are positioned on top of each other */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: left 0.3s, opacity 0.3s;
+        backdrop-filter: blur(10px);
+    }
+
+    .content-section.active {
+        opacity: 1;
+        left: 0;
+        z-index: 10;
+        /* Ensure the active section is above others */
+    }
+
+    .content-section.left-in {
+        left: 0;
+        opacity: 1;
+    }
+
+    .content-section.right-in {
+        left: 100%;
+        opacity: 0;
+    }
+
+    .content-section.left-out {
+        left: -100%;
+        opacity: 0;
+    }
+
+    .content-section.right-out {
+        left: 100%;
+        opacity: 0;
+    }
+
+    #home h1 {
+        color: #fff;
+        font-size: 400%;
+        position: relative;
+        /* Add position relative to create a positioning context */
+        display: flex;
+        flex-direction: column;
+        /* Stack <a> and <b> vertically */
+        align-items: center;
+        /* Center both <a> and <b> horizontally */
+        justify-content: flex-start;
+        /* Align items to the top of the container */
+    }
+
+    #home a {
+        margin-left: 12.5%;
+        color: #fff;
+        font-size: 3em;
+        position: relative;
+        /* Add position relative to create a positioning context */
+    }
+
+    #wallet h1 {
+        color: #fff;
+        font-size: 250%;
+        position: relative;
+        /* Add position relative to create a positioning context */
+        display: flex;
+        flex-direction: column;
+        /* Stack <a> and <b> vertically */
+        align-items: center;
+        /* Center both <a> and <b> horizontally */
+        justify-content: flex-start;
+        /* Align items to the top of the container */
+    }
+
+    #CurrentCash {
+        width: 20%;
+        height: 30%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 25%;
+        right: 48%;
+
+    }
+
+    #ChargeDuration {
+        width: 20%;
+        height: 30%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 25%;
+        right: 26.5%;
+
+    }
+
+    #Location {
+        width: 20%;
+        height: 30%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 25%;
+        right: 5%;
+    }
+
+    #icon {
+        position: absolute;
+        /* Position the element absolutely */
+        top: 0;
+        /* Align it to the top of the container */
+        left: 0;
+        /* Align it to the left of the container */
+        margin: 10px;
+        /* Optional: Adjust the space from the edges */
+        font-size: 3em;
+        /* Set the font size for the icon */
+        color: #fff;
+    }
+
+    #CurrentCash a {
+        margin-top: 15%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 25%;
+        font-size: 2em;
+        color: #fff;
+        /* Set the text color */
+        display: block;
+        /* Make <a> a block-level element */
+    }
+
+    #ChargeDuration a {
+        margin-top: 15%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 20%;
+        font-size: 2em;
+        color: #fff;
+        /* Set the text color */
+        display: block;
+        /* Make <a> a block-level element */
+    }
+
+
+    #Location a {
+        margin-top: 15%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 35%;
+        font-size: 2em;
+        color: #fff;
+        /* Set the text color */
+        display: block;
+        /* Make <a> a block-level element */
+    }
+
+    #CurrentCash a i,
+    #ChargeDuration a i,
+    #Location a i {
+        color: #fff;
+        /* Set the icon color */
+    }
+
+    #CurrentCash b {
+        font-size: 2.2em;
+        color: #fff;
+        /* Set the text color */
+        margin-top: 15%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 35%;
+        text-align: center;
+        /* Center the text inside <b> */
+        width: 100%;
+        /* Ensure it takes the full width of the parent */
+    }
+
+    #ChargeDuration b {
+        font-size: 2.2em;
+        color: #fff;
+        /* Set the text color */
+        margin-top: 30%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 25%;
+        text-align: center;
+        /* Center the text inside <b> */
+        width: 100%;
+        /* Ensure it takes the full width of the parent */
+    }
+
+    #Location b {
+        font-size: 1em;
+        color: #fff;
+        /* Set the text color */
+        text-align: center;
+        /* Center the text inside <b> */
+        position: relative;
+        /* Use relative positioning */
+        bottom: 10%;
+        right: 8%;
+        /* Adjust the position to the center horizontally */
+        transform: translateX(-50%);
+        /* Use translate to center the element */
+    }
+
+
+    #Discharge {
+        width: 40%;
+        height: 20%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        bottom: 10%;
+        right: 15%;
+        display: none;
+        border-radius: 8px;
+        /* Rounded corners */
+        justify-content: center;
+        /* Centers the text horizontally */
+        align-items: center;
+        /* Centers the text vertically */
+        text-align: center;
+        /* Ensures the text is centered */
+        color: white;
+        /* Text color */
+        font-size: 1.2rem;
+        /* Set font size */
+        font-weight: bold;
+        /* Make the text bold */
+        transition: color 0.3s ease-out, transform 0.1s ease-in, background 0.1s ease-in;
+        /* Transition for text color, background, and transform */
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        margin: 10px 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+
+    #Discharge::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        content: '';
+        border-radius: 8px;
+        /* Match button's rounded corners */
+        display: block;
+        width: 0%;
+        /* Start with 0% width */
+        height: 0%;
+        /* Start with 0% height */
+        background-color: rgb(240, 91, 91);
+        /* Set the background color */
+        transition: width 0.3s ease, height 0.3s ease, box-shadow 0.5s ease-out;
+        /* Smooth transition for size and shadow */
+        z-index: -1;
+        /* Behind the button text */
+    }
+
+    #Discharge:hover {
+        color: #fff;
+        /* Keep text white on hover */
+    }
+
+    #Discharge:hover::before {
+        width: 100%;
+        /* Expand the width to cover the button */
+        height: 100%;
+        /* Expand the height to cover the button */
+        box-shadow: inset 0 0 0 10em rgb(240, 91, 91);
+        /* Inset shadow expands on hover */
+    }
+
+    #Charge {
+        width: 40%;
+        height: 20%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        bottom: 10%;
+        right: 15%;
+        display: flex;
+        border-radius: 8px;
+        /* Rounded corners */
+        justify-content: center;
+        /* Centers the text horizontally */
+        align-items: center;
+        /* Centers the text vertically */
+        text-align: center;
+        /* Ensures the text is centered */
+        color: white;
+        /* Text color */
+        font-size: 1.2rem;
+        /* Set font size */
+        font-weight: bold;
+        /* Make the text bold */
+        transition: color 0.3s ease-out, transform 0.1s ease-in, background 0.1s ease-in;
+        /* Transition for text color, background, and transform */
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        margin: 10px 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #Charge::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        content: '';
+        border-radius: 8px;
+        /* Match button's rounded corners */
+        display: block;
+        width: 0%;
+        /* Start with 0% width */
+        height: 0%;
+        /* Start with 0% height */
+        background-color: rgb(240, 91, 91);
+        /* Set the background color */
+        transition: width 0.3s ease, height 0.3s ease, box-shadow 0.5s ease-out;
+        /* Smooth transition for size and shadow */
+        z-index: -1;
+        /* Behind the button text */
+    }
+
+    #Charge:hover {
+        color: #fff;
+        /* Keep text white on hover */
+    }
+
+    #Charge:hover::before {
+        width: 100%;
+        /* Expand the width to cover the button */
+        height: 100%;
+        /* Expand the height to cover the button */
+        box-shadow: inset 0 0 0 10em rgb(240, 91, 91);
+        /* Inset shadow expands on hover */
+    }
+
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black with transparency */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        width: 300px;
+        margin: auto;
+    }
+
+    .modal-content p {
+        color: #fff;
+    }
+
+    #bill {
+        width: 99%;
+        height: 57.5%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 2.5%;
+        left: 0.5%;
+    }
+
+    #bill a {
+        display: block;
+        margin-top: 5%;
+        margin-left: 20%;
+        font-size: 5em;
+        color: #fff;
+        /* Set the text color */
+        display: block;
+        /* Make <a> a block-level element */
+    }
+
+    #bill b {
+        display: block;
+        margin-top: -5.5%;
+        margin-left: 0%;
+        font-size: 5em;
+        color: #fff;
+        /* Set the text color */
+        text-align: center;
+        /* Center the text inside <b> */
+        width: 100%;
+        /* Ensure it takes the full width of the parent */
+    }
+
+    #moneyBtn {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        /* Ensures buttons are centered vertically */
+        height: 20%;
+        /* Set a specific height for the parent container */
+        top: 0;
+        display: flex;
+        /* Makes the button a block element to respect width/height */
+        margin-top: 30%;
+    }
+
+    #topup {
+        width: 49% !important;
+        /* Ensures buttons take up 50% of the parent's width */
+        height: 80% !important;
+        /* Ensures buttons take up 50% of the parent's height */
+        display: block;
+        /* Makes the button a block element to respect width/height */
+        margin: 5px auto;
+        /* Centers buttons horizontally with space between them */
+    }
+
+    #qrOptionsModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        width: 300px;
+    }
+
+    #qrOptionsModal h3 {
+        color: #fff;
+    }
+
+    /* Dropdown menu */
+    #cameraSelect {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        margin: 20px auto;
+        cursor: pointer;
+        outline: none;
+        width: 80%;
+        max-width: 300px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling for the QR scan container */
+    #qrScanContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    /* Styling for the close button */
+    #closeQRScan {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 20px;
+        background-color: rgba(255, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    /* Styling for webcam select container */
+    #webcamSelectContainer {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    h4 {
+        color: white;
+    }
+
+    #imageContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;  /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+        z-index: 9999;  /* Make sure the container is on top of other content */
+    }
+    
+    #imageContainer img {
+        max-width: 80%;  /* Control the size of the image */
+        max-height: 80%; /* Ensure the image doesn't overflow */
+    }
+    
+    #imageContainer button {
+        position: absolute;  /* Position the button relative to the container */
+        top: 10%;            /* Adjust the vertical position */
+        right: 38%;          /* Move the button 10% from the right side */
+        background: none;
+        color: #6b6b6b;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    #imageContainer button:hover {
+        opacity: 0.7;  /* Add hover effect */
+    }
+    
+    #imageContainer button:focus {
+        outline: none;
+    }
+
+    #saveQRBankButton{
+        margin-right: 50px;
+    }
+    
+
+    /* Bank Form Styles */
+    .form-containerBank {
+        display: none;
+        /* Initially hidden */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(1, 53, 48, 0.7);
+        /* Semi-transparent background */
+        backdrop-filter: blur(6px);
+        /* Apply blur effect */
+        padding: 40px;
+        width: 80%;
+        /* Adjusted width */
+        max-width: 400px;
+        /* Maximum width */
+        height: auto;
+        /* Adjusted height */
+        border-radius: 10px;
+        z-index: 99999;
+    }
+
+    .form-containerBank form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center align form elements */
+    }
+
+    .form-containerBank label,
+    .form-containerBank input,
+    .form-containerBank button {
+        margin: 10px 0;
+    }
+
+    .form-containerBank input,
+    .form-containerBank button {
+        padding: 10px;
+        width: 100%;
+        /* Full width input and button */
+        box-sizing: border-box;
+        /* Include padding and border in width */
+    }
+
+    /* confirm Form Styles */
+    .form-containerConfirm {
+        display: none;
+        /* Initially hidden */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(1, 53, 48, 0.7);
+        /* Semi-transparent background */
+        backdrop-filter: blur(6px);
+        /* Apply blur effect */
+        padding: 40px;
+        width: 80%;
+        /* Adjusted width */
+        max-width: 400px;
+        /* Maximum width */
+        height: auto;
+        /* Adjusted height */
+        border-radius: 10px;
+        z-index: 9999;
+    }
+
+    .form-containerConfirm form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center align form elements */
+    }
+
+    .form-containerConfirm label,
+    .form-containerConfirm input,
+    .form-containerConfirm button {
+        margin: 10px 0;
+    }
+
+    .form-containerConfirm input,
+    .form-containerConfirm button {
+        padding: 10px;
+        width: 100%;
+        /* Full width input and button */
+        box-sizing: border-box;
+        /* Include padding and border in width */
+    }
+
+    .input-containerLog {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        /* Full width input container */
+    }
+
+    .input-containerLog label {
+        margin-right: 10px;
+    }
+
+    .input-containerLog input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 8px;
+        border-radius: 5px;
+        width: calc(100% - 30px);
+        /* Adjusted width */
+    }
+
+    .input-containerLog i {
+        color: #fff;
+    }
+
+
+    button {
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        color: white;
+        /* White text */
+        border: none;
+        /* No borders */
+        padding: 15px 32px;
+        /* Padding around the text */
+        text-align: center;
+        /* Centered text */
+        text-decoration: none;
+        /* Remove text underline */
+        display: inline-block;
+        /* Display as inline-block */
+        font-size: 1.75em;
+        /* Font size */
+        margin: 5px;
+        /* Space between buttons */
+        cursor: pointer;
+        /* Pointer cursor on hover */
+        border-radius: 5px;
+        /* Rounded corners */
+        transition: background-color 0.3s, transform 0.2s ease-in-out;
+        /* Smooth transition */
+    }
+
+    button:hover {
+        background-color: #45a049;
+        /* Darker green on hover */
+        transform: scale(1.05);
+        /* Slightly enlarge the button on hover */
+    }
+
+    button:active {
+        background-color: #3e8e41;
+        /* Even darker green when clicked */
+        transform: scale(1);
+        /* Return to normal size */
+    }
+
+    #Powers-Gauge-Chart {
+        /* margin-left: 10%; */
+        background: rgba(0, 150, 136, 0.7);
+        /* Background color of the gauge */
+        width: 25%;
+        /* Adjust width as needed */
+        height: 25%;
+        /* Adjust height as needed */
+        position: relative;
+        display: block;
+        border-radius: 50%;
+        /* Makes the shape a circle */
+        /* top: 200px; */
+        left: 3%;
+    }
+
+    .Gaugechart-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* Example grid setup */
+        grid-gap: 0.1%;
+        /* Desired gap between items */
+        align-items: center;
+        margin-top: 2.5%;
+    }
+
+
+    .Gaugechart canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+    #Powerline-Chart {
+        margin: 0 auto;
+        /* Center the canvas horizontally */
+        background-color: #3b3b3b;
+        /* Background color of the chart */
+        width: 80%;
+        /* Adjust width for responsiveness */
+        height: auto;
+        /* Maintain aspect ratio */
+        display: block;
+    }
+
+    #Spendline-Chart {
+        margin: 10px auto;
+        /* Center the canvas horizontally */
+        background-color: #3b3b3b;
+        /* Background color of the chart */
+        width: 80%;
+        /* Adjust width for responsiveness */
+        height: auto;
+        /* Maintain aspect ratio */
+        display: block;
+    }
+
+    .Linechart-container {
+        display: flex;
+        margin-top: 3%;
+        margin-left: -2.5%;
+        position: relative;
+        /* Ensure the chart container has positioning for the buttons */
+    }
+
+    .Linechart {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        /* Max width for the chart */
+    }
+
+    .Linechart canvas {
+        width: 100%;
+        /* Make canvas responsive */
+        height: 400px;
+        /* Set a fixed height */
+    }
+
+    .Linechart b {
+        color: #fff;
+        font-size: 1.5rem;
+        /* Use rem for better scaling */
+        margin-top: 10px;
+        text-align: center;
+        /* Center the text */
+        display: block;
+    }
+
+    .chart-buttons {
+        position: absolute;
+        top: -50px;
+        /* Position buttons above the chart */
+        right: 690px;
+        /* Adjust position horizontally to the right */
+        z-index: 10;
+        /* Ensure buttons are above the chart */
+        display: flex;
+        /* Align buttons in a row */
+        gap: 10px;
+        /* Space between buttons */
+    }
+
+    .chart-select {
+        padding: 10px 20px;
+        background-color: #444;
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        width: 120px;
+        /* Make the dropdown more consistent in size */
+        border-radius: 5px;
+        /* Slight rounded corners for aesthetics */
+    }
+
+    .chart-select option {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .chart-select:hover {
+        background-color: #333;
+    }
+
+    #daily-select {
+        padding: 10px 20px;
+        background-color: #444;
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        width: auto;
+        /* Make the dropdown more consistent in size */
+        border-radius: 5px;
+        /* Slight rounded corners for aesthetics */
+    }
+
+    .date-picker-buttons {
+        position: absolute;
+        top: -50px;
+        /* Position buttons above the chart */
+        right: 180px;
+        /* Adjust position horizontally to the right */
+        z-index: 10;
+        /* Ensure buttons are above the chart */
+        display: flex;
+        /* Align buttons in a row */
+        gap: 10px;
+        /* Space between buttons */
+        color: #fff;
+    }
+
+    #date-picker-container {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    #date-picker {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    #confirm-date-btn {
+        padding: 2.5px 5px;
+        background-color: #444;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #confirm-date-btn:hover {
+        background-color: #555;
+    }
+
+    #selected-date {
+        margin-left: 10px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+
+    #daily-record {
+        width: 45%;
+        height: 800px;
+        /* Fixed height to enable scrolling */
+        background-color: rgba(2, 90, 81, 0.7);
+        /* Slightly more transparent */
+        overflow-y: scroll;
+        /* Always show the scrollbar */
+        padding: 10px;
+        box-sizing: border-box;
+        /* Include padding in the width/height */
+        scroll-behavior: smooth;
+        /* Smooth scrolling */
+        overscroll-behavior: contain;
+        /* Prevent scroll chaining, let it overflow within this container */
+        padding-bottom: 5%;
+        /* Additional padding at the bottom for overscroll effect */
+    }
+
+
+    #daily {
+        width: 95%;
+        height: 155px;
+        /* Adjust the height automatically based on content */
+        margin-top: 2%;
+        margin-left: 2.5%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Adjusted transparency for better visibility */
+        border-radius: 2%;
+        display: flex;
+        /* Align items horizontally */
+        align-items: center;
+        /* Center vertically */
+        padding-left: 10px;
+        /* Padding to avoid image touching text */
+    }
+
+    #location-img {
+        width: 125px;
+        height: 125px;
+        margin-left: 1%;
+        margin-right: 10px;
+    }
+
+    #record-detail {
+        display: block;
+        position: relative;
+        margin-left: 10px;
+        /* Adjust margin to give space between text and image */
+    }
+
+    #date-record,
+    #address,
+    #power-record,
+    #price-record {
+        font-size: 1.5em;
+        color: #fff;
+        display: block;
+        position: relative;
+        margin: 1px 0;
+        /* 2px spacing between the rows */
+    }
+
+    #message-Content {
+        width: 97.5%;
+        height: 800px;
+        /* Fixed height to enable scrolling */
+        background-color: rgba(2, 90, 81, 0.7);
+        /* Slightly more transparent */
+        overflow-y: scroll;
+        /* Always show the scrollbar */
+        padding: 10px;
+        box-sizing: border-box;
+        /* Include padding in the width/height */
+        scroll-behavior: smooth;
+        /* Smooth scrolling */
+        overscroll-behavior: contain;
+        /* Prevent scroll chaining, let it overflow within this container */
+        padding-bottom: 5%;
+        /* Additional padding at the bottom for overscroll effect */
+        margin-top: 10px;
+        margin-left: 1.25%;
+    }
+
+    #message-date {
+        font-size: 1.5em;
+        color: #fff;
+        display: block;
+        /* Inline-block to allow centering with text-align */
+        position: relative;
+        text-align: center;
+        /* Center child elements horizontally */
+        margin-top: 1%;
+        /* Ensure it stays at the top */
+    }
+
+    #message-Block {
+        width: 95%;
+        height: auto;
+        /* Adjust the height automatically based on content */
+        margin-top: 0;
+        margin-left: 2.5%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Adjusted transparency for better visibility */
+        border-radius: 2%;
+        display: block;
+        padding: 1%;
+        /* Padding to avoid image touching text */
+    }
+
+    #message {
+        font-size: 1.5em;
+        color: #fff;
+        display: block;
+        position: relative;
+        margin: 1px 0;
+    }
+
+    #delet-message {
+        margin-top: -2%;
+        /* Adjusts the position from the top */
+        margin-left: 99%;
+        /* Adjusts the position from the left; use cautiously with absolute or relative positioning */
+        display: block;
+        /* Makes the element behave like a block-level element */
+        position: relative;
+        /* Positions it relative to its normal position */
+        font-size: 1.5em;
+        /* Adjusts the size of the icon */
+        color: red;
+        /* Sets the color of the trash icon */
+        cursor: pointer;
+        /* Changes the cursor to pointer on hover */
+        transition: transform 0.2s ease, color 0.2s ease;
+        /* Smooth transition for hover effects */
+    }
+
+    /* Optional hover effect */
+    #delet-message:hover {
+        color: darkred;
+        /* Darkens the icon color on hover */
+        transform: scale(1.1);
+        /* Slightly enlarges the icon on hover */
+    }
+
+    /* Optional: focus styling for accessibility */
+    #delet-message:focus {
+        outline: none;
+        /* Removes default outline */
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+        /* Adds a red glow when focused */
+    }
+
+    #sidenav {
+        min-width: 10%;
+        /* Ensure a minimum width */
+        max-width: none;
+        /* Remove any max-width constraints */
+        height: 100vh;
+        position: fixed;
+        right: -300px;
+        top: 0;
+        background: rgba(0, 150, 136, 0.7);
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        padding: 20px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    #sidenav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    #sidenav ul li {
+        margin: 15px 0;
+        position: relative;
+    }
+
+    #sidenav ul li a {
+        font-size: 1.25em;
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    #sidenav ul li a i {
+        margin: 10px;
+    }
+
+    #sidenav ul li a:hover {
+        color: #333;
+        background-color: #c7c7c7;
+    }
+
+    #sidenav ul li ai {
+        margin-right: 10px;
+    }
+
+    #accountBtnSidebar {
+        width: 20px;
+        /* Adjust the size as needed */
+        position: absolute;
+        top: 1px;
+        /* Adjust the distance from the top */
+        right: 1px;
+        /* Adjust the distance from the right */
+        cursor: pointer;
+        /* Add cursor pointer for better UX */
+    }
+
+    #Back {
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        top: 2.5%;
+        /* Adjust distance from the top */
+        left: 10px;
+        /* Adjust distance from the left */
+        font-size: 2em;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        align-items: center;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    #EditBtn {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        top: 2.5%;
+        /* Adjust distance from the top */
+        right: 30px;
+        /* Adjust distance from the left */
+        font-size: 1.5em;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        align-items: center;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    #username {
+        text-align: center;
+        margin-top: 10px;
+        /* Adds a small gap between the image and username */
+        position: relative;
+        /* Removes incorrect bottom positioning */
+        bottom: 550px;
+    }
+
+    #namedisplay {
+        font-size: 2em;
+        color: #fff;
+
+    }
+
+    #email {
+        color: #fff;
+        margin-left: 5px;
+    }
+
+    #ImgEdit {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        top: 27.5%;
+        /* Adjust distance from the top */
+        right: 220px;
+        /* Adjust distance from the left */
+        font-size: 1.5em;
+        text-decoration: none;
+        color: #fff;
+        display: none;
+        align-items: center;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    #profileimg {
+        background: rgba(0, 150, 136, 0.7);
+        /* Background color of the gauge */
+        width: 30%;
+        /* Adjust width as needed */
+        aspect-ratio: 1;
+        /* Ensures a 1:1 ratio (square container) */
+        position: relative;
+        /* Needed for consistent positioning */
+        margin: 0 auto;
+        /* Centers the profile image container */
+        border-radius: 50%;
+        /* Makes the shape a circle */
+        overflow: hidden;
+        /* Ensures the image doesn't overflow the circle */
+        bottom: 550px;
+    }
+
+    #profileimg img {
+        width: 100%;
+        /* Make the image fill the container */
+        height: 100%;
+        /* Make the image fill the container */
+        object-fit: cover;
+        /* Ensures the image is cropped to fit the circle */
+        display: block;
+        /* Prevents extra space below the image */
+    }
+
+
+    #emailblock {
+        width: 90%;
+        height: 7%;
+        background: rgba(75, 126, 117, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 40%;
+        right: 5%;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        text-align: center;
+    }
+
+    #emailblock i {
+        color: #fff;
+        font-size: 1.5em;
+        margin-left: 5px;
+    }
+
+    #emailblock p {
+        margin-left: 2%;
+        font-size: 1em;
+        color: #fff;
+    }
+
+    #BankBlock {
+        width: 90%;
+        height: 7%;
+        background: rgba(75, 126, 117, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 48%;
+        right: 5%;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        text-align: center;
+    }
+
+    #BankBlock i {
+        color: #fff;
+        font-size: 1.5em;
+        margin-left: 5px;
+    }
+
+    #Holdername {
+        margin-left: 2%;
+        font-size: 1em;
+        color: #fff;
+    }
+
+
+    #Save {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        bottom: 30%;
+        left: 30%;
+        font-size: 2em;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        align-items: center;
+        border-radius: 5px;
+        background: #45a049;
+        transition: background 0.3s;
+    }
+
+    #Save:hover {
+        background-color: #27e030;
+        /* Darker green on hover */
+        transform: scale(1.05);
+        /* Slightly enlarge the button on hover */
+    }
+
+    #Save:active {
+        background-color: #3e8e41;
+        /* Even darker green when clicked */
+        transform: scale(1);
+        /* Return to normal size */
+    }
+
+    #Cancel {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        bottom: 30%;
+        left: 60%;
+        font-size: 2em;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        align-items: center;
+        border-radius: 5px;
+        background: #45a049;
+        transition: background 0.3s;
+    }
+
+    #Cancel:hover {
+        background-color: #ac3d1b;
+        /* Darker green on hover */
+        transform: scale(1.05);
+        /* Slightly enlarge the button on hover */
+    }
+
+    #Cancel:active {
+        background-color: #ac3d1b;
+        /* Even darker green when clicked */
+        transform: scale(1);
+        /* Return to normal size */
+    }
+
+    #EditBtn:hover,
+    #nameEditBtn:hover,
+    #ImgEdit:hover,
+    #emailEditBtn:hover {
+        transform: scale(1.05);
+        /* Slightly enlarge the button on hover */
+    }
+
+    #EditBtn:active,
+    #nameEditBtn:active,
+    #ImgEdit:active,
+    #emailEditBtn:active {
+
+        transform: scale(1);
+        /* Return to normal size */
+    }
+
+    #nameInput {
+        font-size: 0.65em;
+        text-align: center;
+    }
+
+    #emailInput {
+        font-size: 1em;
+    }
+
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        background: #222;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    #banner {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('Image/Background.jpg');
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+    }
+
+    .LOGO {
+        width: 50%;
+        height: auto;
+        position: relative;
+        /* margin-top: 1%; */
+        margin-left: -20%;
+    }
+
+    #topnav {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(0, 150, 136, 0.7);
+        backdrop-filter: blur(5px);
+        /* Apply backdrop-filter for blur effect */
+        padding: 1px 50px;
+        /* Adjust padding as needed */
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #topnav nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-right: 40px;
+        padding-top: 80px;
+    }
+
+    #topnav ul {
+        display: none;
+    }
+
+    #bottomnav {
+        position: relative;
+        bottom: -3%;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: rgba(0, 150, 136, 0.7);
+        backdrop-filter: blur(5px);
+        /* Apply backdrop-filter for blur effect */
+        padding: 1px 50px;
+        /* Adjust padding as needed */
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #bottomnav ul {
+        display: flex;
+        /* Make the list items display in a row */
+        list-style: none;
+        margin-left: -30px;
+        padding-bottom: 40%;
+    }
+
+    #bottomnav ul li {
+        margin-right: 20px;
+        /* Adjust spacing between menu items */
+    }
+
+    #bottomnav ul li:last-child {
+        margin-right: 0;
+        /* Remove margin from the last menu item */
+    }
+
+    #bottomnav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 120%;
+        margin-left: 10px;
+        position: relative;
+        /* Add position relative to create a positioning context */
+    }
+
+    #bottomnav ul li i {
+        color: #fff;
+        font-size: 110%;
+        margin-left: 30%;
+    }
+
+
+    #bottomnav ul li a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        /* Adjust distance from text */
+        left: 0;
+        width: 0;
+        height: 2px;
+        /* Line height */
+        background-color: #fff;
+        transition: width 0.3s ease-in-out;
+        /* Smooth transition */
+    }
+
+    #bottomnav ul li a.active::after,
+    #bottomnav ul li a:hover::after {
+        width: 100%;
+        /* Full underline on hover or active */
+    }
+
+    #bottomnav ul li a.active {
+        color: #c7c7c7;
+        /* Change active link color */
+    }
+
+    #bottomnav ul li a:hover::after {
+        width: 100%;
+        /* When hovering, expand the width of the line to cover the letter */
+    }
+
+
+    body.translate-background {
+        transform: translateX(-250px);
+        transition: transform 0.5s ease;
+    }
+
+    .hide-account-icon {
+        display: none !important;
+    }
+
+    #accountBtnTopbar i {
+        text-decoration: none;
+        color: #fff;
+        font-size: 2em;
+        position: relative;
+        bottom: 30px;
+        /* Adjust this to position the element at the bottom */
+        right: -250%;
+        /* Align it horizontally with some padding from the right */
+
+    }
+
+    .content-wrapper {
+        position: relative;
+        width: 100%;
+        height: 80%;
+        overflow: hidden;
+    }
+
+    .content-section {
+        position: absolute;
+        /* Ensure sections are positioned on top of each other */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: left 0.3s, opacity 0.3s;
+        backdrop-filter: blur(10px);
+    }
+
+    .content-section.active {
+        opacity: 1;
+        left: 0;
+        z-index: 10;
+        /* Ensure the active section is above others */
+    }
+
+    .content-section.left-in {
+        left: 0;
+        opacity: 1;
+    }
+
+    .content-section.right-in {
+        left: 100%;
+        opacity: 0;
+    }
+
+    .content-section.left-out {
+        left: -100%;
+        opacity: 0;
+    }
+
+    .content-section.right-out {
+        left: 100%;
+        opacity: 0;
+    }
+
+    #home h1 {
+        color: #fff;
+        font-size: 200%;
+        position: relative;
+        /* Add position relative to create a positioning context */
+        display: flex;
+        flex-direction: column;
+        /* Stack <a> and <b> vertically */
+        align-items: center;
+        /* Center both <a> and <b> horizontally */
+        justify-content: flex-start;
+        /* Align items to the top of the container */
+    }
+
+    #chargeStatus {
+        color: #fff;
+        /* Set text color to white */
+        font-size: 1.5em;
+        /* Set font size */
+        text-decoration: none;
+        /* Remove underline from links */
+        position: relative;
+        /* Position absolutely within the #home container */
+        margin-right: 5%;
+        /* Optional: Adjust space from the left edge */
+        margin-bottom: 2%;
+        /* Optional: Adjust space from the bottom edge */
+    }
+
+    #wallet h1 {
+        color: #fff;
+        font-size: 150%;
+        position: relative;
+        /* Add position relative to create a positioning context */
+        display: flex;
+        flex-direction: column;
+        /* Stack <a> and <b> vertically */
+        align-items: center;
+        /* Center both <a> and <b> horizontally */
+        justify-content: flex-start;
+        /* Align items to the top of the container */
+    }
+
+    #CurrentCash {
+        width: 45%;
+        height: 25%;
+        border-radius: 8px;
+        /* Rounded corners */
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 45%;
+        left: 2.5%;
+
+    }
+
+    #ChargeDuration {
+        width: 45%;
+        height: 25%;
+        border-radius: 8px;
+        /* Rounded corners */
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 45%;
+        right: 2.5%;
+
+    }
+
+    #Location {
+        width: 45%;
+        height: 25%;
+        border-radius: 8px;
+        /* Rounded corners */
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        bottom: 2.5%;
+        left: 2.5%;
+    }
+
+    #icon {
+        position: absolute;
+        /* Position the element absolutely */
+        top: 0;
+        /* Align it to the top of the container */
+        left: 0;
+        /* Align it to the left of the container */
+        margin: 10px;
+        /* Optional: Adjust the space from the edges */
+        font-size: 1.5em;
+        /* Set the font size for the icon */
+        color: #fff;
+    }
+
+    #CurrentCash a {
+        margin-top: 20%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 10%;
+        font-size: 1.3em;
+        color: #fff;
+        /* Set the text color */
+        display: block;
+        /* Make <a> a block-level element */
+    }
+
+    #ChargeDuration a {
+        margin-top: 20%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 10%;
+        font-size: 1.2em;
+        color: #fff;
+        /* Set the text color */
+        display: block;
+        /* Make <a> a block-level element */
+    }
+
+
+    #Location a {
+        margin-top: 20%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 25%;
+        font-size: 1.3em;
+        color: #fff;
+        /* Set the text color */
+        display: block;
+        /* Make <a> a block-level element */
+    }
+
+    #CurrentCash a i,
+    #ChargeDuration a i,
+    #Location a i {
+        color: #fff;
+        /* Set the icon color */
+    }
+
+    #CurrentCash b {
+        font-size: 1.5em;
+        color: #fff;
+        /* Set the text color */
+        margin-top: 25%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 25%;
+        text-align: center;
+        /* Center the text inside <b> */
+        width: 100%;
+        /* Ensure it takes the full width of the parent */
+    }
+
+    #ChargeDuration b {
+        font-size: 1.3em;
+        color: #fff;
+        /* Set the text color */
+        margin-top: 50%;
+        /* Adjust space between <a> and <b> */
+        margin-left: 15%;
+        text-align: center;
+        /* Center the text inside <b> */
+        width: 100%;
+        /* Ensure it takes the full width of the parent */
+    }
+
+    #Location b {
+        font-size: 1em;
+        color: #fff;
+        /* Set the text color */
+        text-align: center;
+        /* Center the text inside <b> */
+        position: relative;
+        /* Use relative positioning */
+        bottom: 10%;
+        right: 6%;
+        /* Adjust the position to the center horizontally */
+        transform: translateX(-50%);
+        /* Use translate to center the element */
+    }
+
+
+    #Discharge {
+        width: 45%;
+        height: 25%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        bottom: 0.5%;
+        right: 2.5%;
+        display: flex;
+        border-radius: 8px;
+        /* Rounded corners */
+        justify-content: center;
+        /* Centers the text horizontally */
+        align-items: center;
+        /* Centers the text vertically */
+        text-align: center;
+        /* Ensures the text is centered */
+        color: white;
+        /* Text color */
+        font-size: 1.2rem;
+        /* Set font size */
+        font-weight: bold;
+        /* Make the text bold */
+        transition: color 0.3s ease-out, transform 0.1s ease-in, background 0.1s ease-in;
+        /* Transition for text color, background, and transform */
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        margin: 10px 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #Discharge:hover {
+        color: #fff;
+        /* Keep text white on hover */
+    }
+
+    #Discharge:hover::before {
+        width: 100%;
+        /* Expand the width to cover the button */
+        height: 100%;
+        /* Expand the height to cover the button */
+        box-shadow: inset 0 0 0 10em rgb(240, 91, 91);
+        /* Inset shadow expands on hover */
+    }
+
+    #Charge {
+        width: 45%;
+        height: 25%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        bottom: 0.5%;
+        right: 2.5%;
+        display: flex;
+        border-radius: 8px;
+        /* Rounded corners */
+        justify-content: center;
+        /* Centers the text horizontally */
+        align-items: center;
+        /* Centers the text vertically */
+        text-align: center;
+        /* Ensures the text is centered */
+        color: white;
+        /* Text color */
+        font-size: 1.2rem;
+        /* Set font size */
+        font-weight: bold;
+        /* Make the text bold */
+        transition: color 0.3s ease-out, transform 0.1s ease-in, background 0.1s ease-in;
+        /* Transition for text color, background, and transform */
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        margin: 10px 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #Charge::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        content: '';
+        border-radius: 8px;
+        /* Match button's rounded corners */
+        display: block;
+        width: 0%;
+        /* Start with 0% width */
+        height: 0%;
+        /* Start with 0% height */
+        background-color: rgb(240, 91, 91);
+        /* Set the background color */
+        transition: width 0.3s ease, height 0.3s ease, box-shadow 0.5s ease-out;
+        /* Smooth transition for size and shadow */
+        z-index: -1;
+        /* Behind the button text */
+    }
+
+    #Charge:hover {
+        color: #fff;
+        /* Keep text white on hover */
+    }
+
+    #Charge:hover::before {
+        width: 100%;
+        /* Expand the width to cover the button */
+        height: 100%;
+        /* Expand the height to cover the button */
+        box-shadow: inset 0 0 0 10em rgb(240, 91, 91);
+        /* Inset shadow expands on hover */
+    }
+
+    #qrOptionsModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        width: 300px;
+    }
+
+    #qrOptionsModal h3 {
+        color: #fff;
+    }
+
+    /* Dropdown menu */
+    #cameraSelect {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        margin: 20px auto;
+        cursor: pointer;
+        outline: none;
+        width: 80%;
+        max-width: 300px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling for the QR scan container */
+    #qrScanContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    /* Styling for the close button */
+    #closeQRScan {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 20px;
+        background-color: rgba(255, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    /* Styling for webcam select container */
+    #webcamSelectContainer {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    h4 {
+        color: white;
+    }
+
+    #imageContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;  /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+        z-index: 9999;  /* Make sure the container is on top of other content */
+    }
+    
+    #imageContainer img {
+        max-width: 80%;  /* Control the size of the image */
+        max-height: 80%; /* Ensure the image doesn't overflow */
+    }
+    
+    #imageContainer button {
+        position: absolute;  /* Position the button relative to the container */
+        top: 15%;            /* Adjust the vertical position */
+        right: 5%;          /* Move the button 10% from the right side */
+        background: none;
+        color: #6b6b6b;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    #imageContainer button:hover {
+        opacity: 0.7;  /* Add hover effect */
+    }
+    
+    #imageContainer button:focus {
+        outline: none;
+    }
+
+    #saveQRBankButton{
+        margin-right: 50px;
+    }
+    
+    /* Bank Form Styles */
+    .form-containerBank {
+        display: none;
+        /* Initially hidden */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(1, 53, 48, 0.7);
+        /* Semi-transparent background */
+        backdrop-filter: blur(6px);
+        /* Apply blur effect */
+        padding: 40px;
+        width: 80%;
+        /* Adjusted width */
+        max-width: 400px;
+        /* Maximum width */
+        height: auto;
+        /* Adjusted height */
+        border-radius: 10px;
+        z-index: 99999;
+    }
+
+    .form-containerBank form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center align form elements */
+    }
+
+    .form-containerBank label,
+    .form-containerBank input,
+    .form-containerBank button {
+        margin: 10px 0;
+    }
+
+    .form-containerBank input,
+    .form-containerBank button {
+        padding: 10px;
+        width: 100%;
+        /* Full width input and button */
+        box-sizing: border-box;
+        /* Include padding and border in width */
+    }
+
+    /* confirm Form Styles */
+    .form-containerConfirm {
+        display: none;
+        /* Initially hidden */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(1, 53, 48, 0.7);
+        /* Semi-transparent background */
+        backdrop-filter: blur(6px);
+        /* Apply blur effect */
+        padding: 40px;
+        width: 80%;
+        /* Adjusted width */
+        max-width: 400px;
+        /* Maximum width */
+        height: auto;
+        /* Adjusted height */
+        border-radius: 10px;
+        z-index: 9999;
+    }
+
+    .form-containerConfirm form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center align form elements */
+    }
+
+    .form-containerConfirm label,
+    .form-containerConfirm input,
+    .form-containerConfirm button {
+        margin: 10px 0;
+    }
+
+    .form-containerConfirm input,
+    .form-containerConfirm button {
+        padding: 10px;
+        width: 100%;
+        /* Full width input and button */
+        box-sizing: border-box;
+        /* Include padding and border in width */
+    }
+
+    .input-containerLog {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        /* Full width input container */
+    }
+
+    .input-containerLog label {
+        margin-right: 10px;
+    }
+
+    .input-containerLog input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 8px;
+        border-radius: 5px;
+        width: calc(100% - 30px);
+        /* Adjusted width */
+    }
+
+    .input-containerLog i {
+        color: #fff;
+    }
+
+
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black with transparency */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: rgba(0, 150, 136, 0.7);
+        ;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        width: 300px;
+        margin: auto;
+    }
+
+    .modal-content p {
+        color: #fff;
+    }
+
+    #bill {
+        width: 97.5%;
+        height: 57.5%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 2.5%;
+        left: 1.25%;
+    }
+
+    #bill a {
+        display: block;
+        margin-top: 20%;
+        margin-left: 20%;
+        font-size: 2em;
+        color: #fff;
+        /* Set the text color */
+        display: block;
+        /* Make <a> a block-level element */
+    }
+
+    #bill b {
+        display: block;
+        margin-top: -2.5%;
+        margin-left: 0%;
+        font-size: 4em;
+        color: #fff;
+        /* Set the text color */
+        text-align: center;
+        /* Center the text inside <b> */
+        width: 100%;
+        /* Ensure it takes the full width of the parent */
+    }
+
+    #moneyBtn {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        /* Ensures buttons are centered vertically */
+        height: 20%;
+        /* Set a specific height for the parent container */
+        top: 0;
+        display: block;
+        /* Makes the button a block element to respect width/height */
+        margin-top: 130.5%;
+    }
+
+    #topup {
+        width: 90% !important;
+        /* Ensures buttons take up 50% of the parent's width */
+        height: 80% !important;
+        /* Ensures buttons take up 50% of the parent's height */
+        display: block;
+        /* Makes the button a block element to respect width/height */
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+
+
+    button {
+        background: rgba(0, 150, 136, 0.7);
+        /* Initial background color */
+        color: white;
+        /* White text */
+        border: none;
+        /* No borders */
+        padding: 15px 32px;
+        /* Padding around the text */
+        text-align: center;
+        /* Centered text */
+        text-decoration: none;
+        /* Remove text underline */
+        display: inline-block;
+        /* Display as inline-block */
+        font-size: 1.75em;
+        /* Font size */
+        margin: 5px;
+        /* Space between buttons */
+        cursor: pointer;
+        /* Pointer cursor on hover */
+        border-radius: 5px;
+        /* Rounded corners */
+        transition: background-color 0.3s, transform 0.2s ease-in-out;
+        /* Smooth transition */
+    }
+
+    button:hover {
+        background-color: #45a049;
+        /* Darker green on hover */
+        transform: scale(1.05);
+        /* Slightly enlarge the button on hover */
+    }
+
+    button:active {
+        background-color: #3e8e41;
+        /* Even darker green when clicked */
+        transform: scale(1);
+        /* Return to normal size */
+    }
+
+    #Powers-Gauge-Chart {
+        /* margin-left: 10%; */
+        background: rgba(0, 150, 136, 0.7);
+        /* Background color of the gauge */
+        width: 50%;
+        /* Adjust width as needed */
+        height: auto;
+        /* Adjust height as needed */
+        position: relative;
+        display: block;
+        border-radius: 50%;
+        /* Makes the shape a circle */
+        /* top: 200px; */
+        left: 20%;
+    }
+
+    .Gaugechart-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* Example grid setup */
+        grid-gap: 0.1%;
+        /* Desired gap between items */
+        align-items: center;
+        margin-top: 2.5%;
+    }
+
+
+    .Gaugechart canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .Gaugechart a {
+        margin-left: 25.5%;
+        color: #fff;
+        font-size: 250%;
+        position: relative;
+        /* Add position relative to create a positioning context */
+    }
+
+    .Gaugechart b {
+        margin-left: 20.5%;
+        color: #fff;
+        font-size: 250%;
+        position: relative;
+        /* Add position relative to create a positioning context */
+    }
+
+    #Powerline-Chart {
+        margin: 0 auto;
+        /* Center the canvas horizontally */
+        background-color: #3b3b3b;
+        /* Background color of the chart */
+        width: 80%;
+        /* Adjust width for responsiveness */
+        height: auto;
+        /* Maintain aspect ratio */
+        display: block;
+    }
+
+    #Spendline-Chart {
+        margin: 10px auto;
+        /* Center the canvas horizontally */
+        background-color: #3b3b3b;
+        /* Background color of the chart */
+        width: 80%;
+        /* Adjust width for responsiveness */
+        height: auto;
+        /* Maintain aspect ratio */
+        display: block;
+    }
+
+    .Linechart-container {
+        width: 100%;
+        height: 78vh;
+        display: block;
+        margin-top: 3%;
+        margin-left: -2.5%;
+        position: relative;
+        /* Ensure the chart container has positioning for the buttons */
+        overflow-y: scroll;
+        /* Always show the scrollbar */
+        padding: 10px;
+        box-sizing: border-box;
+        /* Include padding in the width/height */
+        scroll-behavior: smooth;
+        /* Smooth scrolling */
+    }
+
+    .Linechart {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        /* Max width for the chart */
+        margin-top: 5vh;
+    }
+
+    .Linechart canvas {
+        width: 100%;
+        /* Make canvas responsive */
+        height: 400px;
+        /* Set a fixed height */
+    }
+
+    .Linechart b {
+        color: #fff;
+        font-size: 1.5rem;
+        /* Use rem for better scaling */
+        margin-top: 10px;
+        text-align: center;
+        /* Center the text */
+        display: block;
+    }
+
+    .chart-buttons {
+        position: absolute;
+        top: -5.5vh;
+        /* Position buttons above the chart */
+        left: 5px;
+        /* Adjust position horizontally to the right */
+        z-index: 10;
+        /* Ensure buttons are above the chart */
+        display: flex;
+        /* Align buttons in a row */
+        gap: 10px;
+        /* Space between buttons */
+    }
+
+    .chart-select {
+        padding: 10px 20px;
+        background-color: #444;
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        width: 120px;
+        /* Make the dropdown more consistent in size */
+        border-radius: 5px;
+        /* Slight rounded corners for aesthetics */
+    }
+
+    .chart-select option {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .chart-select:hover {
+        background-color: #333;
+    }
+
+
+    #daily-record {
+        display: block;
+        width: 105%;
+        height: 55vh;
+        /* Fixed height to enable scrolling */
+        background-color: rgba(2, 90, 81, 0.7);
+        /* Slightly more transparent */
+        overflow-y: scroll;
+        /* Always show the scrollbar */
+        padding: 10px;
+        box-sizing: border-box;
+        /* Include padding in the width/height */
+        scroll-behavior: smooth;
+        /* Smooth scrolling */
+        overscroll-behavior: contain;
+        /* Prevent scroll chaining, let it overflow within this container */
+        padding-bottom: 5%;
+        /* Additional padding at the bottom for overscroll effect */
+    }
+
+
+    #daily {
+        width: 95%;
+        height: 105px;
+        /* Adjust the height automatically based on content */
+        margin-top: 2%;
+        margin-left: 2.5%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Adjusted transparency for better visibility */
+        border-radius: 2%;
+        display: flex;
+        /* Align items horizontally */
+        align-items: center;
+        /* Center vertically */
+        padding-left: 10px;
+        /* Padding to avoid image touching text */
+    }
+
+    #location-img {
+        width: 75px;
+        height: 75px;
+        margin-left: 1%;
+        margin-right: 10px;
+    }
+
+    #record-detail {
+        display: block;
+        position: relative;
+        margin-left: 10px;
+        /* Adjust margin to give space between text and image */
+    }
+
+    #date-record,
+    #address,
+    #power-record,
+    #price-record {
+        font-size: 1em;
+        color: #fff;
+        display: block;
+        position: relative;
+        margin: 1px 0;
+        /* 2px spacing between the rows */
+    }
+
+    #message-Content {
+        width: 97.5%;
+        height: 800px;
+        /* Fixed height to enable scrolling */
+        background-color: rgba(2, 90, 81, 0.7);
+        /* Slightly more transparent */
+        overflow-y: scroll;
+        /* Always show the scrollbar */
+        padding: 10px;
+        box-sizing: border-box;
+        /* Include padding in the width/height */
+        scroll-behavior: smooth;
+        /* Smooth scrolling */
+        overscroll-behavior: contain;
+        /* Prevent scroll chaining, let it overflow within this container */
+        padding-bottom: 5%;
+        /* Additional padding at the bottom for overscroll effect */
+        margin-top: 10px;
+        margin-left: 1.25%;
+    }
+
+    #message-date {
+        font-size: 1em;
+        color: #fff;
+        display: block;
+        /* Inline-block to allow centering with text-align */
+        position: relative;
+        text-align: center;
+        /* Center child elements horizontally */
+        margin-top: 1%;
+        /* Ensure it stays at the top */
+    }
+
+    #message-Block {
+        width: 97.5%;
+        height: auto;
+        /* Adjust the height automatically based on content */
+        margin-left: 1.25%;
+        background: rgba(0, 150, 136, 0.7);
+        /* Adjusted transparency for better visibility */
+        border-radius: 2%;
+        display: block;
+        padding: 1%;
+        /* Padding to avoid image touching text */
+    }
+
+    #message {
+        font-size: 1em;
+        color: #fff;
+        display: block;
+        position: relative;
+        margin: 1px 0;
+    }
+
+    #delet-message {
+        margin-top: -25px;
+        /* Adjusts the position from the top */
+        margin-left: 94%;
+        /* Adjusts the position from the left; use cautiously with absolute or relative positioning */
+        display: block;
+        /* Makes the element behave like a block-level element */
+        position: relative;
+        /* Positions it relative to its normal position */
+        font-size: 1.2em;
+        /* Adjusts the size of the icon */
+        color: red;
+        /* Sets the color of the trash icon */
+        cursor: pointer;
+        /* Changes the cursor to pointer on hover */
+        transition: transform 0.2s ease, color 0.2s ease;
+        /* Smooth transition for hover effects */
+    }
+
+    /* Optional hover effect */
+    #delet-message:hover {
+        color: darkred;
+        /* Darkens the icon color on hover */
+        transform: scale(1.1);
+        /* Slightly enlarges the icon on hover */
+    }
+
+    /* Optional: focus styling for accessibility */
+    #delet-message:focus {
+        outline: none;
+        /* Removes default outline */
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+        /* Adds a red glow when focused */
+    }
+
+    #sidenav {
+        min-width: 10%;
+        /* Ensure a minimum width */
+        max-width: none;
+        /* Remove any max-width constraints */
+        height: 100vh;
+        position: fixed;
+        right: -300px;
+        top: 0;
+        background: rgba(0, 150, 136, 0.7);
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        padding: 20px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    #sidenav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    #sidenav ul li {
+        margin: 15px 0;
+        position: relative;
+    }
+
+    #sidenav ul li a {
+        font-size: 1.25em;
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    #sidenav ul li a i {
+        margin: 10px;
+    }
+
+    #sidenav ul li a:hover {
+        color: #333;
+        background-color: #c7c7c7;
+    }
+
+    #sidenav ul li ai {
+        margin-right: 10px;
+    }
+
+    #accountBtnSidebar {
+        width: 20px;
+        /* Adjust the size as needed */
+        position: absolute;
+        top: 1px;
+        /* Adjust the distance from the top */
+        right: 1px;
+        /* Adjust the distance from the right */
+        cursor: pointer;
+        /* Add cursor pointer for better UX */
+    }
+
+    #Back {
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        top: 2.5%;
+        /* Adjust distance from the top */
+        left: 10px;
+        /* Adjust distance from the left */
+        font-size: 2em;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        align-items: center;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    #EditBtn {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        top: 2.5%;
+        /* Adjust distance from the top */
+        right: 30px;
+        /* Adjust distance from the left */
+        font-size: 2em;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        align-items: center;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    #username {
+        text-align: center;
+        margin-top: 10px;
+        /* Adds a small gap between the image and username */
+        position: relative;
+        /* Removes incorrect bottom positioning */
+        bottom: 430px;
+    }
+
+    #namedisplay {
+        font-size: 2em;
+        color: #fff;
+
+    }
+
+    #email {
+        color: #fff;
+        margin-left: 5px;
+    }
+
+    #emailblock i {
+        color: #fff;
+        font-size: 1.5em;
+        margin-left: 5px;
+    }
+
+    #ImgEdit {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        top: 29%;
+        /* Adjust distance from the top */
+        right: 25%;
+        /* Adjust distance from the left */
+        font-size: 1.5em;
+        text-decoration: none;
+        color: #fff;
+        display: none;
+        align-items: center;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    #profileimg {
+        background: rgba(0, 150, 136, 0.7);
+        /* Background color of the gauge */
+        width: 50%;
+        /* Adjust width as needed */
+        aspect-ratio: 1;
+        /* Ensures a 1:1 ratio (square container) */
+        position: relative;
+        /* Needed for consistent positioning */
+        margin: 0 auto;
+        /* Centers the profile image container */
+        border-radius: 50%;
+        /* Makes the shape a circle */
+        overflow: hidden;
+        /* Ensures the image doesn't overflow the circle */
+        bottom: 425px;
+    }
+
+    #profileimg img {
+        width: 100%;
+        /* Make the image fill the container */
+        height: 100%;
+        /* Make the image fill the container */
+        object-fit: cover;
+        /* Ensures the image is cropped to fit the circle */
+        display: block;
+        /* Prevents extra space below the image */
+    }
+
+
+    #emailblock {
+        width: 90%;
+        height: 7%;
+        background: rgba(75, 126, 117, 0.7);
+        /* Initial background color */
+        position: absolute;
+        /* Absolute positioning relative to the nearest positioned ancestor */
+        top: 41.25%;
+        right: 5%;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        text-align: center;
+    }
+
+    #emailblock p {
+        margin-left: 2%;
+        font-size: 1em;
+        color: #fff;
+    }
+
+    #Save {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        bottom: 40%;
+        left: 20%;
+        font-size: 2em;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        align-items: center;
+        border-radius: 5px;
+        background: #45a049;
+        transition: background 0.3s;
+    }
+
+    #Save:hover {
+        background-color: #27e030;
+        /* Darker green on hover */
+        transform: scale(1.05);
+        /* Slightly enlarge the button on hover */
+    }
+
+    #Save:active {
+        background-color: #3e8e41;
+        /* Even darker green when clicked */
+        transform: scale(1);
+        /* Return to normal size */
+    }
+
+    #Cancel {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        /* Position it relative to the viewport */
+        bottom: 40%;
+        left: 50%;
+        font-size: 2em;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        align-items: center;
+        border-radius: 5px;
+        background: #45a049;
+        transition: background 0.3s;
+    }
+
+    #Cancel:hover {
+        background-color: #ac3d1b;
+        /* Darker green on hover */
+        transform: scale(1.05);
+        /* Slightly enlarge the button on hover */
+    }
+
+    #Cancel:active {
+        background-color: #ac3d1b;
+        /* Even darker green when clicked */
+        transform: scale(1);
+        /* Return to normal size */
+    }
+
+    #EditBtn:hover,
+    #nameEditBtn:hover,
+    #ImgEdit:hover,
+    #emailEditBtn:hover {
+        transform: scale(1.05);
+        /* Slightly enlarge the button on hover */
+    }
+
+    #EditBtn:active,
+    #nameEditBtn:active,
+    #ImgEdit:active,
+    #emailEditBtn:active {
+
+        transform: scale(1);
+        /* Return to normal size */
+    }
+
+    #nameInput {
+        font-size: 0.65em;
+        text-align: center;
+    }
+
+    #emailInput {
+        font-size: 1em;
+    }
+
+}

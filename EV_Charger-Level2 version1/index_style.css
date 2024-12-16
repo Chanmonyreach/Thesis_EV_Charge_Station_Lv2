@@ -1,0 +1,745 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+#banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0, 0, 0, 0.25)), url('Image/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.LOGO {
+    width: 10%;
+    position: absolute;
+    top: 4%;
+    left: 10%;
+}
+
+#topnav {
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    z-index: 3;
+    transition: transform 0.3s ease;
+}
+
+#topnav.moved {
+    transform: translateX(-300px); /* Adjust this value if the sidebar width changes */
+}
+
+#topnav ul {
+    padding-top: 80%;
+    display: flex;
+    list-style: none;
+}
+
+#topnav ul li {
+    margin: 2%;
+    display: inline-block;
+    position: relative;
+}
+
+#topnav ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+}
+
+#sidenav {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    right: -300px;
+    top: 0;
+    background: rgba(0, 150, 136, 0.7);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidenav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+#sidenav ul li {
+    margin: 15px 0;
+    position: relative;
+}
+
+#sidenav ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+#sidenav ul li a i{
+    font-size: 1.25em;
+    margin-right: 10px;
+}
+
+#sidenav ul li a:hover { 
+    color: #333;
+    background-color: #c7c7c7;
+}
+
+#sidenav ul li ai {
+    margin-right: 10px;
+}
+
+#menuBtn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Increase the gap to create more space between icons */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#menuBtn :hover {
+    transform: scale(1.2); /* Enlarge the icon when hovered */
+}
+
+.content {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content h1 {
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.content p {
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    height: 2.8em;
+    width: 10em;
+    padding: 0;
+    outline: none;
+    overflow: hidden;
+    color: #fff;
+    transition: color 0.3s 0.1s ease-out;
+    text-align: center;
+    line-height: 2.8em;
+    margin: 10px 0;
+}
+
+.button::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: '';
+    border-radius: 50%;
+    display: block;
+    width: 20em;
+    height: 20em;
+    left: -5em;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+}
+
+.button:hover {
+    color: #fff;
+}
+
+.button:hover::before {
+    box-shadow: inset 0 0 0 10em gray;
+}
+
+#feature {
+    width: auto;
+    padding: 70px 0;
+    background: #fff;
+}
+
+.title-text {
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+.title-text p {
+    margin: auto;
+    font-size: 30px;
+    color: #009688;
+    font-weight: bold ;
+}
+
+.title-text h1 {
+    margin: auto;
+    font-size: 40px;
+    color: #000;
+    font-weight: bold ;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Increase the gap to create more space between icons */
+}
+
+.social-icons a {
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-icons a i {
+    font-size: 3em;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Enlarge the icon when hovered */
+}
+
+/*Login Form Styles */
+.form-containerLog {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 150, 136, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(6px); /* Apply blur effect */
+    padding: 40px;
+    width: 400px; /* Set width */
+    height: 400px; /* Set height */
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.form-containerLog form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-containerLog label, .form-containerLog input, .form-containerLog button {
+    margin: 10px 0;
+}
+
+.form-containerLog input, .form-containerLog button {
+    padding: 10px;
+}
+
+.input-containerLog {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.input-containerLog label {
+    margin-right: 10px;
+}
+
+.input-containerLog input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.input-containerLog i {
+    color: #fff;
+}
+
+/*Register Form Styles */
+.form-containerReg {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 150, 136, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(6px); /* Apply blur effect */
+    padding: 40px;
+    width: 400px; /* Set width */
+    height: 400px; /* Set height */
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.form-containerReg form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-containerReg label, .form-containerReg input, .form-containerReg button {
+    margin: 10px 0;
+}
+
+.form-containerReg input, .form-containerReg button {
+    padding: 10px;
+}
+
+.input-containerReg {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.input-containerReg label {
+    margin-right: 10px;
+}
+
+.input-containerReg input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.input-containerReg i {
+    color: #fff;
+}
+
+.shake-animation {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
+.input-containerReg span {
+    display: block;
+    margin-top: 10px; /* Adjust the margin as needed */
+    font-size: 0.8em; /* Adjust the font size as needed */
+    color: red; /* Adjust the color as needed */
+}
+
+
+/* Media Queries */
+
+/* For smaller screens */
+@media screen and (max-width: 1024px) {
+    #topnav {
+        padding: 1px 10px; /* Adjust padding for smaller screens */
+    }
+
+    #topnav img.logo {
+        width: 80px; /* Adjust logo size */
+    }
+
+    #sidenav ul li a i{
+        font-size: 100%;
+        margin-right: 10%;
+    }
+
+    .content h1 {
+        font-size: xx-large;
+        margin-top: 50%;
+    } 
+
+    .content p {
+        font-size: medium;
+        margin: 20px auto;
+        font-weight: 100;
+        line-height: 25px;
+    }
+
+    #feature {
+        width: auto;
+        padding: 5% 0;
+        background: #fff;
+    }
+
+    .title-text {
+        text-align: center;
+        padding-bottom: 10%;
+    }
+
+    .title-text p {
+        margin: auto;
+        font-size: large;
+        color: #009688;
+        font-weight: bold ;
+    }
+
+    .title-text h1 {
+        margin: auto;
+        font-size: x-large;
+        color: #000;
+        font-weight: bold ;
+    }
+
+    .social-icons {
+        margin-top: 1%;
+        display: flex;
+        justify-content: center;
+        gap: 30px; /* Increase the gap to create more space between icons */
+    }
+
+    .social-icons a {
+        transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    .social-icons a i {
+        font-size: 1.75em;
+    }
+
+    .social-icons a:hover {
+        transform: scale(1.2); /* Enlarge the icon when hovered */
+    }
+
+}
+
+/* For larger screens */
+@media screen and (min-width: 375px) {
+    #topnav {
+        padding: 1px 20px; /* Adjust padding for larger screens */
+    }
+
+    #topnav img.logo {
+        width: 100px; /* Adjust logo size */
+    }
+
+    #sidenav {
+        width: 20%; /* Adjust sidebar width */
+        max-width: 300px; /* Limit maximum width */
+    }
+}
+
+/* Orientation-specific adjustments */
+
+/* Portrait mode */
+@media screen and (orientation: portrait) {
+    .LOGO {
+        width: 25%;
+        position: absolute;
+        top: 4%;
+        left: 10%;
+    }
+    #sidenav {
+        width: 40%; /* Adjust sidebar width */
+        max-width: none; /* Limit maximum width */
+    }
+    .content {
+        padding: 20px;
+    }
+
+    .form-containerLog, .form-containerReg {
+        width: 90%;
+        max-width: 400px;
+    }
+        /* Login Form Styles */
+        .form-containerLog {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 150, 136, 0.7); /* Semi-transparent background */
+            backdrop-filter: blur(6px); /* Apply blur effect */
+            padding: 40px;
+            width: 80%; /* Adjusted width */
+            max-width: 400px; /* Maximum width */
+            height: auto; /* Adjusted height */
+            border-radius: 10px;
+            z-index: 4;
+        }
+    
+        .form-containerLog form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align form elements */
+        }
+    
+        .form-containerLog label, .form-containerLog input, .form-containerLog button {
+            margin: 10px 0;
+        }
+    
+        .form-containerLog input, .form-containerLog button {
+            padding: 10px;
+            width: 100%; /* Full width input and button */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+    
+        .input-containerLog {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100%; /* Full width input container */
+        }
+    
+        .input-containerLog label {
+            margin-right: 10px;
+        }
+    
+        .input-containerLog input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 8px;
+            border-radius: 5px;
+            width: calc(100% - 30px); /* Adjusted width */
+        }
+    
+        .input-containerLog i {
+            color: #fff;
+        }
+    
+        /* Register Form Styles */
+        .form-containerReg {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 150, 136, 0.7); /* Semi-transparent background */
+            backdrop-filter: blur(6px); /* Apply blur effect */
+            padding: 40px;
+            width: 80%; /* Adjusted width */
+            max-width: 400px; /* Maximum width */
+            height: auto; /* Adjusted height */
+            border-radius: 10px;
+            z-index: 4;
+        }
+    
+        .form-containerReg form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align form elements */
+        }
+    
+        .form-containerReg label, .form-containerReg input, .form-containerReg button {
+            margin: 10px 0;
+        }
+    
+        .form-containerReg input, .form-containerReg button {
+            padding: 10px;
+            width: 100%; /* Full width input and button */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+    
+        .input-containerReg {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100%; /* Full width input container */
+        }
+    
+        .input-containerReg label {
+            margin-right: 10px;
+        }
+    
+        .input-containerReg input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 8px;
+            border-radius: 5px;
+            width: calc(100% - 30px); /* Adjusted width */
+        }
+    
+        .input-containerReg i {
+            color: #fff;
+        }
+}
+
+/* Landscape mode */
+@media screen and (orientation: landscape) {
+    .LOGO {
+        width: 15%;
+        position: absolute;
+        top: 4%;
+        left: 10%;
+    }
+    .content {
+        padding: 10px;
+    }
+
+    .form-containerLog, .form-containerReg {
+        width: 70%;
+        max-width: 500px;
+    }
+        /* Login Form Styles */
+        .form-containerLog {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 150, 136, 0.7); /* Semi-transparent background */
+            backdrop-filter: blur(6px); /* Apply blur effect */
+            padding: 40px;
+            width: 80%; /* Adjusted width */
+            max-width: 400px; /* Maximum width */
+            height: auto; /* Adjusted height */
+            border-radius: 10px;
+            z-index: 4;
+        }
+    
+        .form-containerLog form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align form elements */
+        }
+    
+        .form-containerLog label, .form-containerLog input, .form-containerLog button {
+            margin: 10px 0;
+        }
+    
+        .form-containerLog input, .form-containerLog button {
+            padding: 10px;
+            width: 100%; /* Full width input and button */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+    
+        .input-containerLog {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100%; /* Full width input container */
+        }
+    
+        .input-containerLog label {
+            margin-right: 10px;
+        }
+    
+        .input-containerLog input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 8px;
+            border-radius: 5px;
+            width: calc(100% - 30px); /* Adjusted width */
+        }
+    
+        .input-containerLog i {
+            color: #fff;
+        }
+    
+        /* Register Form Styles */
+        .form-containerReg {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 150, 136, 0.7); /* Semi-transparent background */
+            backdrop-filter: blur(6px); /* Apply blur effect */
+            padding: 20px;
+            width: 30%; /* Adjusted width */
+            max-width: 400px; /* Maximum width */
+            height: auto; /* Adjusted height */
+            border-radius: 10px;
+            z-index: 4;
+        }
+    
+        .form-containerReg form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align form elements */
+        }
+    
+        .form-containerReg label, .form-containerReg input, .form-containerReg button {
+            margin: 10px 0;
+        }
+    
+        .form-containerReg input, .form-containerReg button {
+            padding: 10px;
+            width: 90%; /* Full width input and button */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+    
+        .input-containerReg {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 90%;
+        }
+    
+        .input-containerReg label {
+            margin-right: 10px;   
+        }
+    
+        .input-containerReg input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .input-containerReg i {
+            color: #fff;
+        }
+}

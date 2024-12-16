@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Charger</title>
+    <link rel="icon" type="image/jpg" href="Image/LOGO_Head.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Login_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script type="module" src="Gauge-Chart.js"></script>
+    <script src="Power-Chart.js" defer></script>
+    <script src="Spend-Chart.js" defer></script>
+    <script src="Login_script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+    <section id="banner">
+        <div id="topnav">
+            <img src="Image/LOGO.png" class="LOGO" alt="Logo">
+            <nav>
+                <ul>
+                    <li><i class="fas fa-home"></i><a href="#" class="active" data-section="home">Home</a></li>
+                    <li><i class="fas fa-wallet"></i> <a href="#" class="" data-section="wallet">Wallet</a></li>
+                    <li><i class="fas fa-chart-line"></i> <a href="#" data-section="activity">Activity</a></li>
+                    <li><i class="fas fa-bell"></i><a href="#" data-section="notification">notification</a></li>
+                </ul>
+                <b href="#" id="accountBtnTopbar"><i class="fas fa-user"></i></b>
+            </nav>
+        </div>
+        <div id="sidenav">
+            <ul>
+                <li><a href="#" id="profile"><i class="fas fa-user"></i>Profile</a></li>
+                <li><a href="#" id="setting"><i class="fas fa-cog"></i>Settings</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+
+            <div id="ProfileContent">
+                <a href="#" id="Back"><i class="fas fa-arrow-left"></i></a>
+                <a id="EditBtn"><i class="fas fa-edit"></i></a>
+                <a id="ImgEdit"><i class="fas fa-camera"></i></a>
+                <div id="profileimg">
+                    <img src="Image/Profileless.jpg" id="ProfileImg" alt="Profile Image">
+                </div>
+                <div id="username">
+                    <a id="namedisplay">username</a>
+                    <!-- <a id="nameEditBtn"><i class="fas fa-edit"></i></a> -->
+                </div>
+
+                <div id="emailblock">
+                    <i class="fas fa-envelope"></i>
+                    <div id="email">xxxxx@gmail.com</div>
+                    <!-- <a id="emailEditBtn"><i class="fas fa-edit"></i></a> -->
+                </div>
+
+                <div id="BankBlock">
+                    <i class="fas fa-credit-card"></i>
+                    <div id="Holdername">axxx</div>
+                </div>
+
+                <div id="saveBtn">
+                    <a id="Save">Save</a>
+                    <a id="Cancel">Cancel</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="content-wrapper">
+            <section id="home" class="content-section active">
+                <h1>Charging Dashboard</h1>
+                <div class="Gaugechart-container">
+                    <div class="Gaugechart">
+                        <canvas id="Powers-Gauge-Chart" width="270" height="270"></canvas>
+                        <a id="chargeStatus">Charging Process</a>
+                    </div>
+                </div>
+                <div id="CurrentCash">
+                    <i id="icon" class="fas fa-money-bill-wave"></i>
+                    <a>Charge Price</a>
+                    <b id="PayCash"></b>
+                </div>
+                <div id="ChargeDuration">
+                    <i id="icon" class="fas fa-clock"></i> 
+                    <a>Charge Duration</a>
+                    <b id="Duration"></b>
+                </div>
+                <div id="Location">
+                    <i id="icon" class="fas fa-map-marker-alt"></i>
+                    <a> Location</a>
+                    <b id="Locate"></b>
+                </div>
+
+                <button id="Discharge">Stop Charge</button>
+
+
+                    <!-- Buttons to trigger payment and top-up options -->
+                    <button id="Charge">Start charging</button>
+
+                    <!-- Modal to show the QR code scan/upload options -->
+                    <div id="qrOptionsModal" style="display: none;">
+                        <div class="modal-content">
+                            <h3>Select an Option:</h3>
+                            <button id="uploadQR">Upload QR Image</button>
+                            <button id="scanQR">Scan QR Code</button>
+                            <button id="closeModal">Close</button>
+                        </div>
+                    </div>
+
+                    <!-- File input to upload QR code image (hidden initially) -->
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;" />
+
+                    <!-- Video element to display camera feed (hidden initially) -->
+                    <video id="video" style="display: none;" width="300" height="300" autoplay></video>
+
+                    <!-- Canvas to capture video frame for QR scanning (hidden initially) -->
+                    <canvas id="canvas" style="display: none;"></canvas>
+
+                    <select id="cameraSelect" style="display: none;"></select>
+                    <button onclick="listCameras()" id="CloseCam" style="display: none;">Close Cameras</button>
+
+                <div id="confirmModal" class="modal">
+                    <div class="modal-content">
+                        <p>Are you sure you want to stop charging your car?</p>
+                        <button id="confirmYes">Yes</button>
+                        <button id="confirmNo">No</button>
+                    </div>
+                </div>
+
+
+            </section>
+            <section id="wallet" class="content-section">
+                <div id="bill">
+                    <h1>Wallet Dashboard</h1>
+                    <a>Amount:</a>
+                    <b id="Amount"></b>
+                </div>
+                <div id="moneyBtn">
+                    <!-- Buttons to trigger payment and top-up options -->
+                    <button id="topup">TopUp Now</button>
+                    <div id="imageContainer"></div>
+ 
+                </div>
+
+            </section>
+            <section id="activity" class="content-section">
+                <div class="Linechart-container">
+                    <div class="Linechart">
+                        <div class="chart-buttons">
+                            <select id="chart-select" class="chart-select">
+                                <option value="monthly" id="monthly">Month</option>
+                                <option value="yearly" id="yearly">Year</option>
+                            </select>
+                        </div>
+                        <canvas id="Powerline-Chart"></canvas>
+                        <canvas id="Spendline-Chart"></canvas>
+                    </div>
+
+                    <div class="date-picker-buttons">
+                        <select id="daily-select">
+                            <option value="All-daily" id="Alldaily">All</option>
+                            <option value="date-picker" id="datepicker">Choose</option>
+                        </select>
+
+                        <!-- The date picker container that will be shown when "Choose" is selected -->
+                        <div id="date-picker-container" style="display: none;">
+                            <label for="date-picker">Select Date:</label>
+                            <input type="date" id="date-picker">
+                            <span id="confirm-date-btn" class="confirm-text">OK</span>
+                            <p id="selected-date"></p>
+                        </div>
+                    </div>
+
+                    <div id="daily-record">
+                        <!-- <div id="daily">
+                            <img src="Image/map_Logo.png" alt="map" id="location-img">
+                            <div id="record-detail">
+                                <a id="date-record">15 Oct 2024</a>
+                                <a id="address">View on Google Maps</a>
+                                <a id="power-record">22KWh</a>
+                                <a id="price-record">$22</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+            <section id="notification" class="content-section">
+                <div id="message-Content">
+                    <!-- <a id="message-date">15 Oct 2024</a>
+                    <div id="message-Block">
+                        <a id="message">View on Google Maps</a>
+                        <a id="delet-message"><i class="fas fa-trash" ></i></a>
+                    </div> -->
+                </div>
+            </section>
+        </div>
+
+        <div id="bottomnav">
+            <nav>
+                <ul>
+                    <li><i class="fas fa-home"></i><a href="#" class="active" data-section="home">Home</a></li>
+                    <li><i class="fas fa-wallet"></i> <a href="#" class="" data-section="wallet">Wallet</a></li>
+                    <li><i class="fas fa-chart-line"></i> <a href="#" data-section="activity">Activity</a></li>
+                    <li><i class="fas fa-bell"></i><a href="#" data-section="notification">notification</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <div class="form-containerBank" id="BankForm">
+        <form id="BankFormElement">
+            <h2 style="color: white; text-align: center;">Bank Info</h2>
+            <div class="input-containerLog">
+                <label for="BankHoldername"><i class="fas fa-user"></i></label>
+                <input type="text" id="BankHoldername" name="BankHoldername" required placeholder="BankHolder's name">
+            </div>
+            <div class="input-containerLog">
+                <label for="BankNumber"><i class="fas fa-credit-card"></i></label>
+                <input type="password" id="BankNumber" name="BankNumber" required placeholder="Last 3 Digit of your Bank Number">
+            </div>
+            <button id="Bank-form-cancel-btn">Cancel</button>
+            <button id="Bank-form-Next-btn">next</button>
+        </form>
+    </div>
+    <div class="form-containerConfirm" id = "confirmForm">
+        <form id="confirmFormElement">
+            <h2 style="color: white; text-align: center;">Confirm password</h2>
+            <div class="input-containerLog">
+                <label for="confirmpassword"><i class="fas fa-lock"></i></label>
+                <input type="password" id="confirmpassword" name="confirm password" required
+                    placeholder="confirmpassword">
+            </div>
+            <button id="Bank-form-Back-btn">Back</button>
+            <button id="Bank-form-confirm-btn" type="submit">Confirm</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

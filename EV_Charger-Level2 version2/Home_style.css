@@ -1,0 +1,386 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#banner {
+    width: auto;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('Image/Background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#topnav {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: rgba(0, 150, 136, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 1px 50px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#topnav img.logo {
+    width: 130px; /* Increase the width to make the logo bigger */
+    transition: width 0.3s ease; /* Add transition for smooth resizing */
+}
+
+#topnav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#topnav ul li {
+    margin-right: 20px;
+    padding-top: 100px;
+}
+
+#topnav ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+}
+
+#topnav ul li:last-child {
+    margin-right: 0;
+}
+
+#topnav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size:large;
+    position: relative; /* Add position relative to create a positioning context */
+}
+
+#topnav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; /* Adjust this value to change the distance from the letter */
+    left: 0;
+    width: 0; /* Initially, the line is invisible */
+    height: 2px; /* Height of the line */
+    background-color: #fff; /* Color of the line */
+    transition: width 0.3s ease; /* Transition effect for width change */
+}
+#topnav ul li a.active::after {
+    width: 100%; /* Expand the width of the line for the active link */
+}
+
+#topnav ul li a.active {
+    color: #c7c7c7; /* Change the color of the active link */
+}
+
+#topnav ul li a:hover::after {
+    width: 100%; /* When hovering, expand the width of the line to cover the letter */
+}
+
+#topnav ul li ai {
+    margin-right: 10px;
+}
+
+.content-wrapper {
+    position: relative;
+    width: 100%; /* Ensure the wrapper takes the full width */
+    height: 100%; /* Ensure the wrapper takes the full height */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.content-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.content-section.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.content-section.left-in {
+    transform: translateX(-100%);
+}
+
+.content-section.right-in {
+    transform: translateX(100%);
+}
+
+h2 {
+    font-size: 2em;
+    color: #fff;
+}
+
+p {
+    font-size: 1em;
+    color: #ccc;
+}
+
+#topnav > *:not(.logo) {
+    transition: transform 0.3s ease;
+}
+
+#sidenav {
+    width: calc(40% - 250px);
+    height: 100vh;
+    position: fixed;
+    right: -300px;
+    top: 0;
+    background: rgba(0, 150, 136, 0.7);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidenav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+#sidenav ul li {
+    margin: 15px 0;
+}
+
+#sidenav ul li a {
+    font-size: 1.25em;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#sidenav ul li a:hover {
+    color: #333;
+    background-color: #c7c7c7;
+}
+
+#sidenav ul li a i{
+    margin-right: 10px;
+}
+
+
+#accountBtnTopbar i {
+    font-size: 1.75em;
+}
+
+.hide-account-icon {
+    display: none;
+}
+
+/* For larger screens */
+@media screen and (min-width: 320px) {
+    #topnav {
+        padding: 1px 20px; /* Adjust padding for smaller screens */
+    }
+
+    #topnav img.logo {
+        width: 80px; /* Adjust logo size */
+    }
+
+    #sidenav {
+        width: 20%; /* Adjust sidebar width */
+        max-width: 300px; /* Limit maximum width */
+    }
+}
+
+/* For smaller screens */
+@media screen and (max-width: 1024px) {
+    #topnav {
+        padding: 1px 10px; /* Adjust padding for smaller screens */
+    }
+
+    #topnav img.logo {
+        width: 150px; /* Adjust logo size for smaller screens */
+    }
+    #topnav img.logo  {
+        width: 20%;
+        position: absolute;
+        top: 4%;
+        left: 10%;
+    }
+    #topnav {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 130px;
+        background: rgba(0, 150, 136, 0.7);
+        backdrop-filter: blur(5px);
+        padding: 1px 50px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    #topnav img.logo {
+        width: 130px; /* Increase the width to make the logo bigger */
+        transition: width 0.3s ease; /* Add transition for smooth resizing */
+    }
+    
+    #topnav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        padding-left:30%;
+        padding-top: 5%;
+    }
+    #topnav ul li {
+        margin-right: 10%;
+        padding-top: 55%;
+    }
+    
+    #topnav ul li a{
+        font-size: medium;
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+        position: relative;
+    }
+    
+    #topnav ul li:last-child {
+        margin-right: 0;
+    }
+    
+    #topnav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size:large;
+        position: relative; /* Add position relative to create a positioning context */
+    }
+    
+    #topnav ul li a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px; /* Adjust this value to change the distance from the letter */
+        left: 0;
+        width: 0; /* Initially, the line is invisible */
+        height: 2px; /* Height of the line */
+        background-color: #fff; /* Color of the line */
+        transition: width 0.3s ease; /* Transition effect for width change */
+    }
+    #topnav ul li a.active::after {
+        width: 100%; /* Expand the width of the line for the active link */
+    }
+    
+    #topnav ul li a.active {
+        color: #c7c7c7; /* Change the color of the active link */
+    }
+    
+    #topnav ul li a:hover::after {
+        width: 100%; /* When hovering, expand the width of the line to cover the letter */
+    }
+    
+    #topnav ul li ai {
+        margin-right: 10px;
+    }
+     
+    #sidenav ul li a {
+        font-size: larger ;
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+    #topnav {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+
+    #topnav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center; /* Center items vertically */
+    }
+
+    #topnav ul li {
+        margin-right: 10%; /* Adjust spacing between menu items */
+        padding-top: 35%;
+    }
+
+    #sidenav {
+        width: 40%; /* Adjust sidebar width */
+        max-width: none; /* Limit maximum width */
+    }
+    .content {
+        padding: 20px;
+    }
+
+    .form-containerLog, .form-containerReg {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+/* Landscape mode */
+@media screen and (orientation: landscape) and (max-width: 1024px){
+    #topnav {
+        display: flex;
+        justify-content: flex-end; /* Align items to the right */
+        align-items: center; /* Center vertically */
+    }
+
+    #topnav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center; /* Center items vertically */
+    }
+
+    #topnav ul li {
+        margin-right: 20px; /* Adjust spacing between menu items */
+        padding-top: 80px;
+    }
+    
+    .content {
+        padding: 10px;
+    }
+
+    .form-containerLog, .form-containerReg {
+        width: 70%;
+        max-width: 500px;
+    }
+
+}
+
