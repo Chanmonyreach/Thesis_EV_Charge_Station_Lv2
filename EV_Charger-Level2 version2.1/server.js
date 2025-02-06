@@ -255,7 +255,7 @@ app.get('/requestData', (req, res) => {
   // If stationID is provided, fetch station data
   if (stationID) {
     const stationQuery =
-      'SELECT stationID, targetPower, chargePower, cost, payment, chargeProcess, chargeTime, location FROM stations WHERE stationID = ?';
+      'SELECT stationID,LimiltCurrent, targetPower, chargePower, cost, payment, chargeProcess, chargeTime, location FROM stations WHERE stationID = ?';
 
     db.query(stationQuery, [stationID], (err, stationResult) => {
       if (err) {
@@ -292,6 +292,7 @@ app.get('/requestData', (req, res) => {
 
       return res.json({
         stationID: stationData.stationID,
+        LimitCurrent:stationData.LimitCurrent,
         targetPower: stationData.targetPower,
         chargePower: stationData.chargePower,
         cost: stationData.cost,
@@ -786,7 +787,7 @@ app.get('/payment', (req, res) => {
               }
 
               // Insert notifications and log historical data
-              const message = 'Your payment was successful. Thank you for choosing us! While your EV charges, enjoy your time. We appreciate your patience!';
+              const message = 'Your payment was successful. We sincerely appreciate your trust in our service. Thank you for choosing us, and we wish you a pleasant and safe journey ahead!';
               insertNotification(userID, message);
               insertHistoricalData(userID, stationID, power, cost); // Log power used and cost
 

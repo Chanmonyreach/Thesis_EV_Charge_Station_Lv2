@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const confirmText = document.getElementById("confirm-date-btn");
     const chooseOption = document.getElementById("datepicker");
 
-    const IP = "192.168.100.60";
+    const IP = window.location.hostname; // Dynamically get the IP or domain name
 
     // Function to check the orientation and adjust the layout for phones only
     function checkOrientation() {
@@ -638,10 +638,6 @@ document.addEventListener('DOMContentLoaded', async function () {
                 document.getElementById('Locate').innerHTML = `<b id="Locate"><a href="${googleMapsUrl}" target="_blank">View on Google Maps</a></b>`;
                 document.getElementById('chargeStatus').innerText = stationData.chargeProcess;
 
-                if (stationData.chargeProcess == "stop" || stationData.chargeProcess == "error" || stationData.chargeProcess == "complete") {
-                    makePayment(stationID);
-                }
-
                 if (stationData.chargeProcess == "N/A" && stationData.connection == "Available"){
                     if (localStorage.getItem('stationID')) {
                         localStorage.removeItem('stationID');
@@ -728,6 +724,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                 // Check if the user has enough wallet balance to proceed with payment
                 if ((stationData.cost - userData.wallet) == 0) {
                     makePayment(stationID);
+                }
+                if (stationData.chargeProcess == "stop" || stationData.chargeProcess == "error" || stationData.chargeProcess == "complete") {
+                    makePayment(stationID);
+                    updateNotification(userID, stationData.chargeProcess);
                 }
 
             } catch (error) {
@@ -1164,6 +1164,54 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Call the function at an interval to refresh notifications every 5 seconds (5000 milliseconds)
     setInterval(Notification_Data, 1000);
 
+    function updateNotification(userID, chargeStatus) {
+        const url = `http://${IP}:8081/updatenotification`;
+    
+        // Prepare the data to be sent in the request body
+        const data = {
+            userID: userID,
+            chargeStatuse: chargeStatus
+        };
+    
+        // Use fetch to send a POST request to update the notification
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            // Check if the response is successful (status code 200)
+            if (response.ok) {
+                return response.json();  // If it's OK, process the JSON
+            } else {
+                // If response is not OK, throw an error but allow the response body to be handled
+                return response.json().then(data => {
+                    throw new Error(data.error || `Notification update failed with status code ${response.status}`);
+                });
+            }
+        })
+        .then(data => {
+            if (data && data.message) {
+                // Assuming success message is sent by server
+                if (data.message === 'Charging session completed successfully') {
+                    alert('Charging session completed successfully');
+                } else if (data.message.includes('Charging status updated')) {
+                    alert(data.message);
+                }
+            } else {
+                // Handle case where there is no message or invalid response
+                alert('Failed to update notification. Invalid server response.');
+            }
+        })
+        .catch(error => {
+            console.error('Error updating notification:', error);
+            alert(`Error updating notification: ${error.message}`);
+        });
+    }
+    
+
     document.getElementById('Discharge').addEventListener('click', function () {
         // Show the modal
         const modal = document.getElementById('confirmModal');
@@ -1305,7 +1353,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     connectStationID(stationID, userID)
                         .then(success => {
                             if (success) {
-                                const url = `http://${IP}:8081/stationProcess?stationID=${stationID}&chargeStatuse=charge`;
+                                const url = `http://${IP}:8081/stationProcess?stationID=${stationID}&chargeStatuse=waiting`;
     
                                 fetch(url)
                                     .then(response => {

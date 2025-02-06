@@ -1,0 +1,30 @@
+2025/01/13 15:52:10 [notice] 27796#24924: signal process started
+2025/01/13 15:54:35 [notice] 2132#26472: signal process started
+2025/01/13 15:58:47 [notice] 30652#4336: signal process started
+2025/01/14 08:47:56 [notice] 11648#17672: signal process started
+2025/01/14 08:49:03 [notice] 7012#21984: signal process started
+2025/01/14 09:00:01 [notice] 28600#5328: signal process started
+2025/01/14 09:03:37 [notice] 12236#26192: signal process started
+2025/01/14 09:04:04 [notice] 26108#9996: signal process started
+2025/01/14 09:04:17 [notice] 21244#10564: signal process started
+2025/01/14 09:06:39 [notice] 7792#19844: signal process started
+2025/01/23 20:59:51 [notice] 24780#5096: signal process started
+2025/01/24 00:32:38 [notice] 32648#2192: signal process started
+2025/01/24 00:34:19 [notice] 32712#28588: signal process started
+2025/01/24 00:41:44 [notice] 13452#14076: signal process started
+2025/01/24 00:56:07 [notice] 15252#33064: signal process started
+2025/01/24 00:58:06 [notice] 29500#10760: signal process started
+2025/01/24 01:03:29 [notice] 6308#28892: signal process started
+2025/01/24 01:05:53 [notice] 33516#30868: signal process started
+2025/01/24 01:10:32 [notice] 32672#7744: signal process started
+2025/01/24 01:21:35 [notice] 32644#3972: signal process started
+2025/01/24 18:24:34 [warn] 26236#11020: "user" is not supported, ignored in C:\Users\User\Documents\Thesis\Software\SERVER\nginx/conf/nginx.conf:1
+2025/01/24 18:24:34 [warn] 12156#2088: "user" is not supported, ignored in C:\Users\User\Documents\Thesis\Software\SERVER\nginx/conf/nginx.conf:1
+2025/01/24 18:24:58 [error] 12156#6916: *1 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/01/24 18:24:58 [error] 12156#6916: *2 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/01/24 18:25:25 [notice] 9024#6816: signal process started
+2025/01/24 18:25:27 [error] 12156#6916: *3 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/01/24 18:26:43 [notice] 8460#26196: signal process started
+2025/01/24 21:44:06 [notice] 31932#31428: signal process started
+2025/01/24 21:44:47 [notice] 2944#31292: signal process started
+2025/01/25 00:25:49 [notice] 30220#27396: signal process started
